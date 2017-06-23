@@ -15,7 +15,8 @@ export default {
   data () {
     return {
       tweets: [],
-      isLoading: true
+      isLoading: true,
+      msg: 'salut'
     }
   },
   created () {
