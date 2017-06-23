@@ -7,7 +7,6 @@
       - {{ moment(tweet.date).fromNow() }}
     </div>
     <div>
-      {{ tweet.date }}
       {{ tweet.contenu }}
     </div>
     <div>
@@ -51,6 +50,7 @@ export default {
         }
       ).then(response => {
         console.log('retweeté')
+        this.$emit('retweeted', this.tweet.id)
       },
       response => {
         // error callback

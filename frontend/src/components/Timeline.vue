@@ -1,6 +1,7 @@
 <template>
   <div class="timeline">
     <h1>{{ msg }}</h1>
+    <utilisateurs></utilisateurs>
     <feed :tweets="tweets" :loading="isLoading"/>
   </div>
 </template>
@@ -9,6 +10,7 @@
 import Feed from './Feed'
 import Vue from 'vue'
 import Resource from 'vue-resource'
+import Utilisateurs from './Utilisateurs'
 Vue.use(Resource)
 export default {
   name: 'timeline',
@@ -16,7 +18,7 @@ export default {
     return {
       tweets: [],
       isLoading: true,
-      msg: 'salut'
+      msg: 'TimeLine'
     }
   },
   created () {
@@ -29,13 +31,14 @@ export default {
         // get body data
         this.tweets = response.body
         this.isLoading = false
+        this.$emit('retweeted', this.tweet.id)
       },
       response => {
         // error callback
       })
     }
   },
-  components: { Feed }
+  components: { Feed, Utilisateurs }
 }
 
 </script>

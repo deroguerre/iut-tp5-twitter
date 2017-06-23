@@ -4,7 +4,7 @@
       Chargement des tweets en cours…
     </div>
     <ul v-else>
-      <li class="tweet" v-for="tweet in tweets"><tweet :tweet="tweet"/></li>
+      <li class="tweet" v-for="tweet in tweets"><tweet @retweeted="retweet" :tweet="tweet"/></li>
     </ul>
   </div>
 </template>
