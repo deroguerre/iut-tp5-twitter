@@ -1,5 +1,5 @@
 <template>
-  <div class="timeline">
+  <div class="tweet">
     <h1>{{ msg }}</h1>
     <ul>
       <li v-for="tweet in tweets"><tweet :tweet="tweet"/></li>
@@ -8,6 +8,10 @@
 </template>
 
 <script>
+import Tweet from './Tweet'
+import Vue from 'vue'
+import Resource from 'vue-resource'
+Vue.use(Resource)
 export default {
   name: 'timeline',
   data () {
@@ -26,7 +30,6 @@ export default {
   },
   components: {Tweet}
 }
-import Tweet from './Tweet'
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
