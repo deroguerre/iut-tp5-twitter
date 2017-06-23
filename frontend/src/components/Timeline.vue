@@ -16,16 +16,22 @@ export default {
   name: 'timeline',
   data () {
     return {
-      tweets: [
-        {
-          'auteur': 'Bingo',
-          'contenu': 'salut !'
-        },
-        {
-          'auteur': 'MrJoe',
-          'contenu': 'hi'
-        }
-      ]
+      tweets: []
+    }
+  },
+  created () {
+    this.fetchTweets()
+  },
+  methods: {
+    fetchTweets: function () {
+      // GET /someUrl
+      this.$http.get('http://localhost:8080/list').then(response => {
+        // get body data
+        this.tweets = response.body
+      },
+      response => {
+        // error callback
+      })
     }
   },
   components: {Tweet}
