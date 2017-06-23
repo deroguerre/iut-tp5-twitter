@@ -1,11 +1,8 @@
 <template>
   <div class="timeline">
     <h1>{{ msg }}</h1>
-    <router-link to="/">
-      Accueil
-    </router-link>
     <ul>
-      <li v-for="tweet in tweets">{{ tweet.auteur }} say: {{ tweet.contenu }}</li>
+      <li v-for="tweet in tweets"><tweet :tweet="tweet"/></li>
     </ul>
   </div>
 </template>
@@ -26,8 +23,10 @@ export default {
         }
       ]
     }
-  }
+  },
+  components: {Tweet}
 }
+import Tweet from './Tweet'
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
