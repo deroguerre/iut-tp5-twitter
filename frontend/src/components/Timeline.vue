@@ -1,5 +1,6 @@
 <template>
   <div class="timeline">
+    <img src='../assets/nerd-dance.jpg'>
     <h1>{{ msg }}</h1>
     <utilisateurs></utilisateurs>
     <feed :tweets="tweets" :loading="isLoading"/>
